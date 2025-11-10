@@ -26,17 +26,19 @@
       --brand-2:#14b8a6;
       --card:#093737;
       --shadow:0 10px 30px rgba(6,44,44,.55);
+      --border:rgba(148,163,184,.18);
     }
     body{
       margin:0;
       background:radial-gradient(1200px 600px at 80% -10%, rgba(20,184,166,.08), transparent 60%),
                  radial-gradient(800px 500px at 0% 20%, rgba(13,148,136,.08), transparent 60%), var(--bg);
       color:var(--text);
-      font:16px/1.6 'Inter', sans-serif;
+      font:16px/1.6 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
-    a{color:var(--brand); text-decoration:none; font-weight:600;}
+    a{color:var(--brand); text-decoration:none; font-weight:600}
     a:hover{text-decoration:underline}
     .wrap{max-width:1200px; margin:0 auto; padding:24px}
+
     header{display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:nowrap}
     .brand{display:flex; align-items:center; gap:14px}
     .brand img{width:80px; height:80px; border-radius:18px; object-fit:cover; box-shadow:var(--shadow)}
@@ -46,6 +48,7 @@
     .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid transparent; background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:white; font-weight:700; box-shadow:var(--shadow); font-size:15px}
     .btn.secondary{background:transparent; color:var(--brand); border:1px solid rgba(20,184,166,.4)}
     .icon{width:18px; height:18px; display:inline-block; vertical-align:middle}
+    .linkedin-icon{width:18px; height:18px; filter:invert(41%) sepia(24%) saturate(994%) hue-rotate(129deg) brightness(94%) contrast(87%);}
 
     .hero{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-top:30px}
     .figure{border-radius:22px; overflow:hidden; box-shadow:var(--shadow)}
@@ -54,14 +57,36 @@
     .keywords h3{margin:0 0 8px; color:var(--brand); font-weight:700}
     .keyword-list{display:flex; flex-wrap:wrap; gap:8px}
     .pill{padding:6px 12px; border-radius:999px; background:rgba(13,148,136,.15); color:var(--brand); font-weight:600; font-size:15px}
-    .highlight-box{margin-top:14px; background:rgba(13,148,136,.15); border-left:4px solid var(--brand-2); border-radius:10px; padding:10px 14px; color:var(--text); font-weight:600;}
+    .highlight-box{margin-top:14px; background:rgba(13,148,136,.15); border-left:4px solid var(--brand-2); border-radius:10px; padding:10px 14px; color:var(--text); font-weight:700}
 
     section{margin-top:48px}
-    h2{font:700 22px Inter, sans-serif; margin-bottom:10px}
-    .card{background:rgba(255,255,255,.03); border:1px solid rgba(148,163,184,.18); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
+    h2{font:800 24px/1.3 Inter, sans-serif; margin-bottom:10px; letter-spacing:.2px}
+    .card{background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
     .footer{text-align:center; margin:40px 0 10px; color:var(--muted); font-size:14px}
 
-    @media (max-width:900px){header{flex-wrap:wrap; justify-content:center;text-align:center}nav{flex-wrap:wrap;justify-content:center}.hero{grid-template-columns:1fr}}
+    /* CV grid + toned-down items */
+    .cv-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .cv-section{background:rgba(255,255,255,.02); border:1px dashed var(--border); border-radius:14px; padding:16px}
+    .cv-section h2{margin-top:0}
+    .span-2{grid-column:span 2}
+    .divider{height:1px; background:var(--border); margin:10px 0 8px 0}
+
+    .cv-list{display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none}
+    .cv-item{border:0; background:transparent; border-radius:10px; padding:10px}
+    .cv-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px}
+    .cv-role{font-weight:700; font-size:15px}
+    .cv-date{color:var(--muted); font-weight:700; font-size:12px; white-space:nowrap}
+    .cv-org{color:var(--muted); margin-top:2px; font-size:13px}
+    .cv-note{margin-top:4px; font-size:13px; color:#cfeee6}
+    .subhead{font:800 18px/1.4 Inter, sans-serif; color:var(--brand); margin:0 0 6px}
+
+    @media (max-width:900px){
+      header{flex-wrap:wrap; justify-content:center; text-align:center}
+      nav{flex-wrap:wrap; justify-content:center}
+      .hero{grid-template-columns:1fr}
+      .cv-grid{grid-template-columns:1fr}
+      .span-2{grid-column:span 1}
+    }
   </style>
 </head>
 <body>
@@ -78,14 +103,12 @@
         <a class="btn" href="mailto:tb424@cornell.edu">
           <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email
         </a>
-        <a class="btn secondary" href="./cv_tile.pdf" target="_blank" rel="noopener">
-          📝 CV
-        </a>
+        <a class="btn secondary" href="./cv_tile.pdf" target="_blank" rel="noopener">📝 CV</a>
         <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
           <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Scholar
         </a>
         <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
-          LinkedIn
+          <img class="linkedin-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
         </a>
       </nav>
     </header>
@@ -107,7 +130,7 @@
             <span class="pill">High-Performance Computing</span>
           </div>
           <div class="highlight-box">
-            🎥 A short video describing this research project can be viewed here:
+            🎥 <strong>PhD thesis project in a nutshell:</strong>
             <a href="https://www.youtube.com/watch?v=1kBWVukeIYo" target="_blank" rel="noopener">
               <img class="icon" src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"> Watch on YouTube
             </a>
@@ -123,20 +146,174 @@
         </div>
       </section>
 
+      <!-- ===================== CV GRID (2xN) ===================== -->
+      <section id="cv">
+        <div class="cv-grid">
+          <!-- Experience -->
+          <div class="cv-section" id="experience">
+            <h2>Experience</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">System Administrator</span><span class="cv-date">08/2024 – present</span></div>
+                <div class="cv-org">Environmental C.F.D. Group · Civil &amp; Environmental Engineering, Cornell University</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Graduate Teaching Assistant</span><span class="cv-date">01/2023 – present</span></div>
+                <div class="cv-org">Civil &amp; Environmental Engineering, Cornell University</div>
+                <div class="cv-note">Numerical Methods (CEE 6000 – Fall 25); Fluid Mechanics (CEE 3310 – Fall 23 &amp; 24); Engineering Computation (CEE 3200 – Spring 23/24/25)</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Graduate Research Assistant</span><span class="cv-date">08–12/2022</span></div>
+                <div class="cv-org">Civil &amp; Environmental Engineering, Cornell University</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Cornell Fellow Graduate Research Assistant</span><span class="cv-date">08/2021 – 08/2022</span></div>
+                <div class="cv-org">Civil &amp; Environmental Engineering, Cornell University</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Volunteer</span><span class="cv-date">07–11/2020</span></div>
+                <div class="cv-org">Youth Directorate · Ministry of Education / Religious Affairs, Hellenic Republic</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Publications + Awards combined -->
+          <div class="cv-section" id="pubs-awards">
+            <h2>Publications &amp; Awards</h2>
+
+            <h3 class="subhead">Publications</h3>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Preprint — Submitted in Journal of Physical Oceanography</span><span class="cv-date">09/2024</span></div>
+                <div class="cv-org">arXiv</div>
+                <div class="cv-note"><a href="https://arxiv.org/abs/2502.01607" target="_blank" rel="noopener">https://arxiv.org/abs/2502.01607</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Preprint — Submitted in Ocean Dynamics</span><span class="cv-date">10/2025</span></div>
+                <div class="cv-org">DOI link will be provided by Research Square</div>
+              </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="subhead">Awards</h3>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">DeFrees Fellowship</span><span class="cv-date">05–08/2023</span></div>
+                <div class="cv-org">Civil &amp; Environmental Engineering, Cornell University</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Gerondelis Foundation Scholarship</span><span class="cv-date">2022</span></div>
+                <div class="cv-org">Graduate Study Scholarship Program · Gerondelis Foundation Inc., Lynn, MA, USA</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Cornell University Fellowship</span><span class="cv-date">2021</span></div>
+                <div class="cv-org">Academic Year 2021–2022</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Scholarship for M.Sc. Tuition Fees</span><span class="cv-date">2020</span></div>
+                <div class="cv-org">Based on academic achievements · National and Kapodistrian University of Athens</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Talks spanning two columns -->
+          <div class="cv-section span-2" id="talks">
+            <h2>Invited Talks / Conference Presentations</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Invited Talk — Interinstitutional Postgraduate Program NKUA–HCMR</span><span class="cv-date">07/2024</span></div>
+                <div class="cv-org">Dept. of Physics, Athens, Greece</div>
+                <div class="cv-note">“Pathways to turbulence formation in high amplitude internal solitary waves of depression shoaling over gentle slopes.” <a href="https://oceanography.geol.uoa.gr/anakoinoseis_kai_ekdiloseis/proboli_anakoinosis/prosklisi_se_seminario_yd_tilemachos_mpolioydakis/" target="_blank" rel="noopener">Announcement link</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Poster — Fluid Dynamics of Sustainability and the Environment (FDSE)</span><span class="cv-date">05/2024</span></div>
+                <div class="cv-org">École Polytechnique, Paris, France</div>
+                <div class="cv-note"><a href="http://fdse.org" target="_blank" rel="noopener">http://fdse.org</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Poster — American Geophysical Union, Ocean Sciences Meeting</span><span class="cv-date">02/2024</span></div>
+                <div class="cv-org">New Orleans, Louisiana, USA</div>
+                <div class="cv-note"><a href="https://agu.confex.com/agu/OSM24/meetingapp.cgi/Person/1469507" target="_blank" rel="noopener">AGU profile</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Presentation — APS DFD 76th Annual Meeting</span><span class="cv-date">11/2023</span></div>
+                <div class="cv-org">Washington, D.C., USA</div>
+                <div class="cv-note"><a href="https://meetings.aps.org/Meeting/DFD23/Session/T44" target="_blank" rel="noopener">Session T44</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Presentation — APS DFD 75th Annual Meeting</span><span class="cv-date">11/2022</span></div>
+                <div class="cv-org">Indianapolis, Indiana, USA</div>
+                <div class="cv-note"><a href="https://meetings.aps.org/Meeting/DFD22/Session/L27.2" target="_blank" rel="noopener">Session L27.2</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Poster — 9th International Symposium on Stratified Flows</span><span class="cv-date">08/2022</span></div>
+                <div class="cv-org">Cambridge, UK</div>
+                <div class="cv-note"><a href="https://www.damtp.cam.ac.uk/events/issf2022/" target="_blank" rel="noopener">Conference page</a></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- HPC -->
+          <div class="cv-section" id="hpc">
+            <h2>Approved High-Performance-Computing Proposals</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Maximize Project — NSF supported ACCESS Allocations (USA)</span><span class="cv-date">09/2024</span></div>
+                <div class="cv-org">Role: Co-PI</div>
+                <div class="cv-note">Amount: 6.5M Service Units</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Preparation/Development Projects — GRNET HPC System A.R.I.S. (Greece)</span><span class="cv-date">03/2021</span></div>
+                <div class="cv-org">Role: Co-PI</div>
+                <div class="cv-note">Amount: 200K Service Units</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Training -->
+          <div class="cv-section" id="training">
+            <h2>Additional Training</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Fluid Dynamics of Sustainability and the Environment — Summer School</span><span class="cv-date">05/2024</span></div>
+                <div class="cv-org">École Polytechnique, Paris, France</div>
+                <div class="cv-note"><a href="http://fdse.org" target="_blank" rel="noopener">http://fdse.org</a></div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Efficient Use of HPC Systems</span><span class="cv-date">12/2020</span></div>
+                <div class="cv-org">GRNET PRACE Training Center</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Introduction to Parallel Programming</span><span class="cv-date">11/2020</span></div>
+                <div class="cv-org">GRNET PRACE Training Center</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">Hellenic Physics Union Summer School</span><span class="cv-date">10/2018</span></div>
+                <div class="cv-org">Aegina, Greece</div>
+              </li>
+              <li class="cv-item">
+                <div class="cv-top"><span class="cv-role">25th Summer School-Conference: Dynamical Systems &amp; Complexity</span><span class="cv-date">07/2018</span></div>
+                <div class="cv-org">NCSR Demokritos · Athens, Greece</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- =================== END CV GRID =================== -->
+
       <section id="contact">
         <h2>Contact</h2>
         <div class="card" style="display:flex; gap:14px; flex-wrap:wrap;">
           <a class="btn" href="mailto:tb424@cornell.edu">
             <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email me
           </a>
-          <a class="btn secondary" href="./cv_tile.pdf" target="_blank">
-            📝 Download CV
-          </a>
+          <a class="btn secondary" href="./cv_tile.pdf" target="_blank">📝 Download CV</a>
           <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
             <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Google Scholar
           </a>
           <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
-            LinkedIn
+            <img class="linkedin-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
           </a>
         </div>
       </section>
@@ -147,7 +324,9 @@
     </footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
 
