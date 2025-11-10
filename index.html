@@ -30,8 +30,10 @@
     }
     body{
       margin:0;
-      background:radial-gradient(1200px 600px at 80% -10%, rgba(20,184,166,.08), transparent 60%),
-                 radial-gradient(800px 500px at 0% 20%, rgba(13,148,136,.08), transparent 60%), var(--bg);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(20,184,166,.08), transparent 60%),
+        radial-gradient(800px 500px at 0% 20%, rgba(13,148,136,.08), transparent 60%),
+        var(--bg);
       color:var(--text);
       font:16px/1.6 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
@@ -47,8 +49,13 @@
     nav{display:flex; gap:10px; flex-wrap:nowrap; white-space:nowrap}
     .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid transparent; background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:white; font-weight:700; box-shadow:var(--shadow); font-size:15px}
     .btn.secondary{background:transparent; color:var(--brand); border:1px solid rgba(20,184,166,.4)}
+    .btn.secondary:hover{background:rgba(13,148,136,.2)}
     .icon{width:18px; height:18px; display:inline-block; vertical-align:middle}
     .linkedin-icon{width:18px; height:18px; filter:invert(41%) sepia(24%) saturate(994%) hue-rotate(129deg) brightness(94%) contrast(87%);}
+
+    /* Inline Cornell badge (crimson circle + white C) */
+    .cornell-badge{width:20px; height:20px; display:inline-block}
+    .cornell-badge svg{display:block}
 
     .hero{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-top:30px}
     .figure{border-radius:22px; overflow:hidden; box-shadow:var(--shadow)}
@@ -64,13 +71,14 @@
     .card{background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
     .footer{text-align:center; margin:40px 0 10px; color:var(--muted); font-size:14px}
 
-    /* CV grid + toned-down items */
+    /* CV grid */
     .cv-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
     .cv-section{background:rgba(255,255,255,.02); border:1px dashed var(--border); border-radius:14px; padding:16px}
     .cv-section h2{margin-top:0}
     .span-2{grid-column:span 2}
     .divider{height:1px; background:var(--border); margin:10px 0 8px 0}
 
+    /* CV items toned down */
     .cv-list{display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none}
     .cv-item{border:0; background:transparent; border-radius:10px; padding:10px}
     .cv-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px}
@@ -89,6 +97,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
@@ -104,11 +113,21 @@
           <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email
         </a>
         <a class="btn secondary" href="./cv_tile.pdf" target="_blank" rel="noopener">📝 CV</a>
-        <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
+        <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank" rel="noopener">
           <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Scholar
         </a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
+        <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank" rel="noopener">
           <img class="linkedin-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
+        </a>
+        <!-- Cornell: inline SVG badge so it always renders -->
+        <a class="btn secondary" href="https://www.engineering.cornell.edu/cee/phd-students/" target="_blank" rel="noopener" aria-label="Cornell University CEE PhD Students">
+          <span class="cornell-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" role="img" focusable="false">
+              <circle cx="12" cy="12" r="11" fill="#b31b1b"></circle>
+              <text x="12" y="12" dy="0.35em" text-anchor="middle" font-family="Georgia, 'Times New Roman', Times, serif" font-size="12" fill="#ffffff">C</text>
+            </svg>
+          </span>
+          Cornell
         </a>
       </nav>
     </header>
@@ -146,10 +165,10 @@
         </div>
       </section>
 
-      <!-- ===================== CV GRID (2xN) ===================== -->
+      <!-- ===================== FULL CV GRID ===================== -->
       <section id="cv">
         <div class="cv-grid">
-          <!-- Experience -->
+          <!-- EXPERIENCE -->
           <div class="cv-section" id="experience">
             <h2>Experience</h2>
             <ul class="cv-list">
@@ -177,7 +196,7 @@
             </ul>
           </div>
 
-          <!-- Publications + Awards combined -->
+          <!-- PUBLICATIONS + AWARDS -->
           <div class="cv-section" id="pubs-awards">
             <h2>Publications &amp; Awards</h2>
 
@@ -217,7 +236,7 @@
             </ul>
           </div>
 
-          <!-- Talks spanning two columns -->
+          <!-- TALKS spanning two columns -->
           <div class="cv-section span-2" id="talks">
             <h2>Invited Talks / Conference Presentations</h2>
             <ul class="cv-list">
@@ -271,7 +290,7 @@
             </ul>
           </div>
 
-          <!-- Training -->
+          <!-- TRAINING -->
           <div class="cv-section" id="training">
             <h2>Additional Training</h2>
             <ul class="cv-list">
@@ -308,12 +327,21 @@
           <a class="btn" href="mailto:tb424@cornell.edu">
             <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email me
           </a>
-          <a class="btn secondary" href="./cv_tile.pdf" target="_blank">📝 Download CV</a>
-          <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
+          <a class="btn secondary" href="./cv_tile.pdf" target="_blank" rel="noopener">📝 Download CV</a>
+          <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank" rel="noopener">
             <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Google Scholar
           </a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
+          <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank" rel="noopener">
             <img class="linkedin-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
+          </a>
+          <a class="btn secondary" href="https://www.engineering.cornell.edu/cee/phd-students/" target="_blank" rel="noopener" aria-label="Cornell University CEE PhD Students">
+            <span class="cornell-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" role="img" focusable="false">
+                <circle cx="12" cy="12" r="11" fill="#b31b1b"></circle>
+                <text x="12" y="12" dy="0.35em" text-anchor="middle" font-family="Georgia, 'Times New Roman', Times, serif" font-size="12" fill="#ffffff">C</text>
+              </svg>
+            </span>
+            Cornell
           </a>
         </div>
       </section>
