@@ -1,100 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilemachos Bolioudakis</title>
-    <style>
-        /* Reset default margin and padding */
-        body, h1, h2, p {
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilemachos Bolioudakis — Research & Projects</title>
+  <meta name="description" content="PhD candidate at Cornell University (Environmental Fluid Mechanics). Research, publications, projects, and contact." />
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#062c2c" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Tilemachos Bolioudakis — Research & Projects" />
+  <meta property="og:description" content="Environmental Fluid Dynamics & Physical Oceanography." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="tile_cayuga.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='82'%3E🌊%3C/text%3E%3C/svg%3E">
 
-        /* Container */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        /* Header */
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+  <style>
+    :root{
+      --bg:#062c2c;
+      --text:#eafaf7;
+      --muted:#9fd9ce;
+      --brand:#0d9488;
+      --brand-2:#14b8a6;
+      --card:#093737;
+      --shadow:0 10px 30px rgba(6,44,44,.55);
+    }
+    body{
+      margin:0;
+      background:radial-gradient(1200px 600px at 80% -10%, rgba(20,184,166,.08), transparent 60%),
+                 radial-gradient(800px 500px at 0% 20%, rgba(13,148,136,.08), transparent 60%), var(--bg);
+      color:var(--text);
+      font:16px/1.6 'Inter', sans-serif;
+    }
+    a{color:var(--brand); text-decoration:none; font-weight:600;}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1200px; margin:0 auto; padding:24px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:nowrap}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand img{width:80px; height:80px; border-radius:18px; object-fit:cover; box-shadow:var(--shadow)}
+    h1{font-size:clamp(28px,2.8vw,40px); margin:0; font-weight:800}
+    .sub{margin:4px 0 0; color:var(--muted); font-weight:500}
+    nav{display:flex; gap:10px; flex-wrap:nowrap; white-space:nowrap}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid transparent; background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:white; font-weight:700; box-shadow:var(--shadow); font-size:15px}
+    .btn.secondary{background:transparent; color:var(--brand); border:1px solid rgba(20,184,166,.4)}
+    .icon{width:18px; height:18px; display:inline-block; vertical-align:middle}
 
-        h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #666;
-        }
+    .hero{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-top:30px}
+    .figure{border-radius:22px; overflow:hidden; box-shadow:var(--shadow)}
+    .figure img{width:100%; height:auto; display:block}
+    .keywords{background:var(--card); border-radius:18px; padding:16px; box-shadow:var(--shadow)}
+    .keywords h3{margin:0 0 8px; color:var(--brand); font-weight:700}
+    .keyword-list{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{padding:6px 12px; border-radius:999px; background:rgba(13,148,136,.15); color:var(--brand); font-weight:600; font-size:15px}
+    .highlight-box{margin-top:14px; background:rgba(13,148,136,.15); border-left:4px solid var(--brand-2); border-radius:10px; padding:10px 14px; color:var(--text); font-weight:600;}
 
-        /* Links */
-        .links {
-            margin-bottom: 20px;
-        }
+    section{margin-top:48px}
+    h2{font:700 22px Inter, sans-serif; margin-bottom:10px}
+    .card{background:rgba(255,255,255,.03); border:1px solid rgba(148,163,184,.18); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
+    .footer{text-align:center; margin:40px 0 10px; color:var(--muted); font-size:14px}
 
-        .links p {
-            margin-bottom: 5px;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #007bff;
-            margin-right: 10px;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Image */
-        .image img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        /* About Me Section */
-        .about-me {
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
-        .about-me p {
-            margin-bottom: 10px;
-        }
-    </style>
+    @media (max-width:900px){header{flex-wrap:wrap; justify-content:center;text-align:center}nav{flex-wrap:wrap;justify-content:center}.hero{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Tilemachos Bolioudakis</h1>
-        <h2>PhD candidate in Civil and Environmental Engineering, Environmental Fluid Mechanics, Cornell University</h2>
-        
-        <div class="links">
-            <p>Click <a href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en">📚</a> to visit my Google Scholar.</p>
-            <p>Click <a href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/">🔗</a> to visit my LinkedIn profile.</p>
-            <p>Contact me via email: <a href="mailto:tb424@cornell.edu">✉️</a></p>
-            <p>View my <a href="./cv_tile.pdf">Curriculum Vitae (PDF)</a></p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="tile_evia.jpg" alt="Tilemachos Bolioudakis portrait">
+        <div>
+          <h1>Tilemachos Bolioudakis</h1>
+          <p class="sub">PhD Candidate · Civil & Environmental Engineering · Cornell University</p>
         </div>
+      </div>
+      <nav>
+        <a class="btn" href="mailto:tb424@cornell.edu">
+          <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email
+        </a>
+        <a class="btn secondary" href="./cv_tile.pdf" target="_blank" rel="noopener">
+          📝 CV
+        </a>
+        <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
+          <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Scholar
+        </a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
+          LinkedIn
+        </a>
+      </nav>
+    </header>
 
-        <div class="image">
-            <img src="./tile_cayuga.jpg" alt="tile_cayuga">
+    <main>
+      <section class="hero">
+        <figure class="figure">
+          <img src="tile_cayuga.jpg" alt="Tilemachos by Cayuga Lake">
+        </figure>
+        <div class="keywords">
+          <h3>🌊💻 Scientific Interests</h3>
+          <div class="keyword-list">
+            <span class="pill">Environmental Fluid Dynamics</span>
+            <span class="pill">Physical Oceanography</span>
+            <span class="pill">Non-linear Internal Waves</span>
+            <span class="pill">Turbulence</span>
+            <span class="pill">Computational Fluid Dynamics</span>
+            <span class="pill">Spectral Element Methods</span>
+            <span class="pill">High-Performance Computing</span>
+          </div>
+          <div class="highlight-box">
+            🎥 A short video describing this research project can be viewed here:
+            <a href="https://www.youtube.com/watch?v=1kBWVukeIYo" target="_blank" rel="noopener">
+              <img class="icon" src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"> Watch on YouTube
+            </a>
+          </div>
         </div>
+      </section>
 
-        <div class="about-me">
-            <h2>About</h2>
-            <p>Obtained a Bachelor of Science degree in Physics, at the University of Athens, advised by Professor Sarantis Sofianos. Subsequently, pursued a Master of Science in Physical Oceanography (<strong>Ocean Physics And Modelling Group </strong> at the University of Athens) and worked under the supervision of Professors S.Sofianos and Peter Diamessis. Currently, undertaking a Ph.D. in Environmental Engineering at Cornell University (<strong>Environmental C.F.D. Group</strong>), advised by Professor Diamessis. My research interests focus on Physical Oceanography and Environmental Fluid Dynamics.</p>
-            <p>Current research topic in a nutshell on YouTube: <a href="https://www.youtube.com/watch?v=1kBWVukeIYo">🎥</a></p>
+      <section id="about">
+        <h2>About</h2>
+        <div class="card">
+          <p>Obtained a Bachelor of Science degree in Physics at the University of Athens, advised by Professor Sarantis Sofianos. Subsequently, pursued a Master of Science in Physical Oceanography within the <strong>Ocean Physics and Modelling Group</strong> at the University of Athens and worked under the joint supervision of Professors Sarantis Sofianos and Peter Diamessis. Currently undertaking a Ph.D. in Environmental Engineering at Cornell University as a member of the <strong>Environmental C.F.D. Group</strong>, advised by Professor Diamessis.</p>
+          <p>Research focuses on the dynamics and transport induced by unstable internal solitary waves of depression shoaling over gentle slopes. Through the use of high-accuracy, high-resolution numerical simulations built with advanced spectral methods and complemented by Lagrangian diagnostics, this work aims to bridge the gap between large-scale flow dynamics and small-scale processes, linking detailed numerical modeling with observational studies and reproducible state-of-the-art simulation frameworks.</p>
         </div>
-    </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="card" style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn" href="mailto:tb424@cornell.edu">
+            <img class="icon" src="https://cdn.simpleicons.org/gmail/FFFFFF" alt="Email"> Email me
+          </a>
+          <a class="btn secondary" href="./cv_tile.pdf" target="_blank">
+            📝 Download CV
+          </a>
+          <a class="btn secondary" href="https://scholar.google.com/citations?user=1HS5D3MAAAAJ&hl=en" target="_blank">
+            <img class="icon" src="https://cdn.simpleicons.org/googlescholar/0d9488" alt="Scholar"> Google Scholar
+          </a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/tilemachos-bolioudakis-873011174/" target="_blank">
+            LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      © <span id="y"></span> Tilemachos Bolioudakis · Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
 
